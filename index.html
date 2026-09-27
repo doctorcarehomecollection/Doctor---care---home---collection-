@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Care Home Collection</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4fbfb;color:#173b3b}
+header{background:#0aa6a6;color:white;padding:22px 18px;text-align:center}
+header h1{margin:0;font-size:28px}
+header p{margin:7px 0 0}
+.hero{padding:35px 20px;text-align:center;background:white}
+.hero h2{font-size:30px;margin:5px 0 12px;color:#087f82}
+.hero p{font-size:17px;line-height:1.6}
+.btn{display:inline-block;background:#0aa6a6;color:#fff;text-decoration:none;padding:13px 22px;border-radius:8px;margin-top:12px;font-weight:bold}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:25px 18px}
+.card{background:white;border-radius:14px;padding:22px;box-shadow:0 3px 12px #00000012;text-align:center}
+.card h3{color:#087f82}
+.form{background:white;margin:10px 18px 30px;padding:22px;border-radius:14px}
+input,textarea{width:100%;padding:13px;margin:7px 0;border:1px solid #cbdede;border-radius:8px;font-size:16px}
+button{width:100%;padding:14px;border:0;border-radius:8px;background:#0aa6a6;color:white;font-size:17px;font-weight:bold}
+footer{background:#173b3b;color:white;text-align:center;padding:20px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Doctor Care Home Collection</h1>
+  <p>घर बैठे स्वास्थ्य सेवाओं की सुविधा</p>
+</header>
+
+<section class="hero">
+  <h2>आपकी सेहत, हमारी प्राथमिकता</h2>
+  <p>घर पर सैंपल कलेक्शन और स्वास्थ्य संबंधी सेवाओं के लिए हमसे संपर्क करें।</p>
+  <a class="btn" href="#booking">बुकिंग करें</a>
+</section>
+
+<section class="cards">
+  <div class="card"><h3>🩺 Home Collection</h3><p>आपके घर पर सुविधाजनक सैंपल कलेक्शन।</p></div>
+  <div class="card"><h3>🔬 Lab Tests</h3><p>विभिन्न आवश्यक जांचों के लिए सुविधा।</p></div>
+  <div class="card"><h3>📞 आसान संपर्क</h3><p>अपनी आवश्यकता बताकर जानकारी प्राप्त करें।</p></div>
+</section>
+
+<section class="form" id="booking">
+  <h2>होम कलेक्शन के लिए संपर्क करें</h2>
+  <form onsubmit="sendWhatsApp(event)">
+    <input id="name" placeholder="आपका नाम" required>
+    <input id="phone" type="tel" placeholder="मोबाइल नंबर" required>
+    <input id="address" placeholder="पता / क्षेत्र" required>
+    <textarea id="test" placeholder="कौन-सी जांच चाहिए?"></textarea>
+    <button type="submit">WhatsApp पर भेजें</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Doctor Care Home Collection</p>
+</footer>
+
+<script>
+function sendWhatsApp(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value;
+  const phone=document.getElementById('phone').value;
+  const address=document.getElementById('address').value;
+  const test=document.getElementById('test').value;
+  const msg=`Doctor Care Home Collection%0Aनाम: ${encodeURIComponent(name)}%0Aमोबाइल: ${encodeURIComponent(phone)}%0Aपता: ${encodeURIComponent(address)}%0Aजांच: ${encodeURIComponent(test)}`;
+  window.open('https://wa.me/?text='+msg,'_blank');
+}
+</script>
+</body>
+</html>
